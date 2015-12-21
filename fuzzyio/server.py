@@ -25,6 +25,7 @@ root = "https://api.fuzzy.io"
 
 http = httplib2.Http()
 
+
 def request(method, url, payload=None):
 
     if type(api_key) != StringType:

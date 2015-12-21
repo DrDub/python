@@ -14,9 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
 class NoSuchAgentError(Exception):
     """Error thrown when accessing an agent that never existed"""
     def __init__(self, id):
         self.id = id
+
     def __str__(self):
         return "NoSuchAgentError <%s>" % (self.id,)

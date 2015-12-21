@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
 class HTTPError(Exception):
     """An error that occurs during an HTTP request"""
     def __init__(self, status, message):
@@ -24,5 +25,6 @@ class HTTPError(Exception):
         """
         self.status = status
         self.message = message
+
     def __str__(self):
-        return "HTTPError <%d>: '%s'" % (self.status,self.message)
+        return "HTTPError <%d>: '%s'" % (self.status, self.message)

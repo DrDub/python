@@ -17,9 +17,11 @@
 from errors import DeletedAgentError, NoSuchAgentError, HTTPError
 from server import request
 
+
 class Agent:
     """A remote agent that can make evaluations"""
-    def __init__(self, id=None, name=None, inputs=None, outputs=None, rules=None):
+    def __init__(self, id=None, name=None, inputs=None, outputs=None,
+                 rules=None):
         """Initialize the agent.
 
         Keyword arguments:
@@ -27,15 +29,16 @@ class Agent:
         id -- ID of the agent. Use this if the Agent is already created.
         name -- Name of a new Agent.
         inputs -- Input definition for a new agent. Dictionary mapping strings
-            (input names) to dictionaries, each of which maps strings (set names)
-            to arrays of floats. Each array can have 2 (slope up or down), 3
-            (triangle), or 4 (trapezoid) numbers.
-        outputs -- Output definition for a new agent. Dictionary mapping strings
-            (output names) to dictionaries, each of which maps strings (set names)
-            to arrays of floats. Each array can have 2 (slope up or down), 3
-            (triangle), or 4 (trapezoid) numbers.
+            (input names) to dictionaries, each of which maps strings
+            (set names) to arrays of floats. Each array can have 2 (slope up
+            or down), 3 (triangle), or 4 (trapezoid) numbers.
+        outputs -- Output definition for a new agent. Dictionary mapping
+            strings (output names) to dictionaries, each of which maps
+            strings (set names) to arrays of floats. Each array can have 2
+            (slope up or down), 3 (triangle), or 4 (trapezoid) numbers.
         rules -- Rules for a new agent. An array of strings, each of which is
-            a rule like 'IF input1 IS low AND input2 IS high THEN output1 IS medium'.
+            a rule like 'IF input1 IS low AND input2 IS high THEN output1
+            IS medium'.
         """
 
         self.id = id

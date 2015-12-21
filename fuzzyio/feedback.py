@@ -16,6 +16,7 @@
 
 from server import request
 
+
 class Feedback:
     """Feedback on an evaluation"""
     def __init__(self, evid=None, id=None, properties=None, **kwargs):
@@ -25,9 +26,11 @@ class Feedback:
             self.properties = properties
         else:
             self.properties = kwargs
+
     def save(self):
         if self.id:
             raise Exception("Feedback is immutable")
-        (results, response) = request('POST', '/evaluation/%s/feedback' % (self.evid), self.properties)
+        (results, response) = request('POST', '/evaluation/%s/feedback' %
+                                      (self.evid), self.properties)
         self.id = results['id']
         self.createdAt = results['createdAt']

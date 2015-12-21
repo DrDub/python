@@ -25,10 +25,12 @@ import server
 This module provides important classes for accessing the fuzzy.io API.
 """
 
+
 def setup(api_key, root=None):
     server.api_key = api_key
     if root:
         server.root = root
+
 
 def evaluate_with_id(agent_id, inputs):
     """Make a fuzzy controller evaluation and return the results.
@@ -43,6 +45,7 @@ def evaluate_with_id(agent_id, inputs):
     agent = Agent(agent_id)
     return agent.evaluate_with_id(inputs)
 
+
 def evaluate(agent_id, inputs):
     """Make a fuzzy controller evaluation and return the results.
 
@@ -55,6 +58,7 @@ def evaluate(agent_id, inputs):
     """
     agent = Agent(agent_id)
     return agent.evaluate(inputs)
+
 
 def feedback(evaluation_id, **kwargs):
     fb = Feedback(evaluation_id, properties=kwargs)

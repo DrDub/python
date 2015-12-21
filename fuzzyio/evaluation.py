@@ -16,14 +16,17 @@
 
 from server import request
 
+
 class Evaluation:
     """Introspection data on a single evaluation"""
     def __init__(self, evid):
         """Specifies the evaluation we're interested in."""
         self.id = evid
+
     def get(self):
         (results, headers) = request("GET", "/evaluation/%s" % (self.id,))
         self.__fromResults(results)
+
     def __fromResults(self, results):
         self.input = results['input']
         self.fuzzified = results['fuzzified']
@@ -34,6 +37,8 @@ class Evaluation:
         self.centroid = results['centroid']
         self.crisp = results['crisp']
         self.createdAt = results['createdAt']
+
     def feedback(self):
-        (results, headers) = request("GET", "/evaluation/%s/feedback" % (self.id,))
+        (results, headers) = request("GET", "/evaluation/%s/feedback" %
+                                     (self.id,))
         return results
